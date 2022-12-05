@@ -9,7 +9,11 @@ const adminRouter = express.Router()
  */
  adminRouter.get('/best-profession', adminController.getBestPaidProfession)
 
- adminRouter.get('/best-clients', adminController.getBestPaidProfession)
+ /**
+  * @returns the clients the paid the most for jobs in the query time period. 
+  * limit query parameter should be applied, default limit is 2.
+  */
+ adminRouter.get('/best-clients', adminController.getClientsTopSpenders)
 
 module.exports = {
     adminRouter,

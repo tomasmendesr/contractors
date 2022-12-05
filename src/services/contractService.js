@@ -7,8 +7,7 @@ const canViewContract = (profileId, contract) => {
 
 const getContractById = async (contractId) => {
     const contract = await Contract.findOne({
-        where: {id: contractId}, 
-        raw: true
+        where: {id: contractId}
     })
     return contract
 }

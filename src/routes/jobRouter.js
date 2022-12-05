@@ -9,6 +9,12 @@ const jobRouter = express.Router()
  */
  jobRouter.get('/unpaid', getProfile, jobController.getUnpaidJobs)
 
+ /**
+  * Pay for a job, a client can only pay if his balance >= the amount to pay. 
+  * The amount should be moved from the client's balance to the contractor balance.
+  */
+ jobRouter.post('/:job_id/pay', getProfile, jobController.pay)
+
 module.exports = {
     jobRouter,
 };

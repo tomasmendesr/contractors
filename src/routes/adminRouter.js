@@ -9,6 +9,8 @@ const adminRouter = express.Router()
  */
  adminRouter.get('/best-profession', adminController.getBestPaidProfession)
 
+ adminRouter.get('/best-clients', adminController.getBestPaidProfession)
+
 module.exports = {
     adminRouter,
 };

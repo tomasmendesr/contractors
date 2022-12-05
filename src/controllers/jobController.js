@@ -22,7 +22,7 @@ const pay = async (req, res) => {
         await profileService.updateBalance(jobContract.ContractorId, job.price)
         res.status(200).end()
     } catch (err) {
-        console.log(`could not pay for job with id ${job_id}. error ${err}`)
+        console.error(`could not pay for job with id ${job_id}. error ${err}`)
         res.status(500).end()
     }
 }

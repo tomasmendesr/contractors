@@ -12,7 +12,7 @@ const contractRouter = express.Router()
 /**
  * @returns list of non terminated contracts belonging to a user (client or contractor)
  */
- contractRouter.get('/', getProfile, contractController.getContracts)
+ contractRouter.get('/', getProfile, contractController.getNonTerminatedContracts)
 
 module.exports = {
     contractRouter,

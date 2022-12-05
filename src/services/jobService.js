@@ -40,10 +40,36 @@ const saveJob = async (job) => {
     await job.save()
 }
 
+const findJobsBetweenDates = async (contractId, start, end) => {
+    const jobs = await Job.findAll({
+        where: {
+            [Op.and]: [
+                {
+                    [Op.gte]: start
+                },
+                {
+                    [Op.lte]: end
+                },
+                {
+                    ContractId: contractId
+                }
+            ]
+        }
+    })
+    return jobs
+}
+
+const getJobsPriceSum = (jobs) => {
+    const jobsPrices = jobs.map(job => job.dataValues.price)
+    return jobsPrices.reduce((partialSum, currentValue) => partialSum + currentValue, 0)
+}
+
 const jobService = {
     getUnpaidJobsForUser,
     getJobById,
-    pay
+    pay,
+    findJobsBetweenDates,
+    getJobsPriceSum,
 }
 
 module.exports = {

@@ -15,8 +15,15 @@ const saveProfile = async (profile) => {
     await profile.save()
 }
 
+const findAllContractors = async () => {
+    return await Profile.findAll({
+        where: { type: 'contractor' }
+    })
+}
+
 const profileService = {
     updateBalance,
+    findAllContractors
 }
 
 module.exports = {
